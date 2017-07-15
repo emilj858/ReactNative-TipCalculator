@@ -7,7 +7,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Hello />
+        <View style ={styles.view1}></View>
+        <View style ={styles.view2}></View>
       </View>
     );
   }
@@ -16,8 +17,20 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center'
   },
+  view1: {
+     backgroundColor: '#ff00ff',
+     flex:1,
+     height: 100,
+  },
+  view2: {
+      backgroundColor: '#00ffff',
+      flex: 1,
+      height: 100,
+  } 
+
 });
