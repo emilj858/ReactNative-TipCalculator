@@ -1,7 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
-
+import { 
+  StyleSheet,
+  Text, 
+  View, 
+  TextInput, 
+  Button 
+} from 'react-native';
 import styles from './styles';
+import {
+  Container,
+} from 'native-base';
+
 
 export default class App extends React.Component {
   constructor(){
@@ -29,39 +38,41 @@ updateCustomTip(customTip){
         tip = (Math.round(tip * 100) / 100).toFixed(2)
       }
     return (
-      <View style={styles.container}>
-        <Text>
-          ${tip}
-        </Text>
-        <TextInput
-          placeholder='Enter bill ammount'
-          style={styles.input}
-          value={this.state.inputValue}
-          keyboardType= 'numeric'
-          onChangeText={(text) => this.setState({inputValue: text})}
-        />
-        <View style = {styles.buttonGroup}>
-          <Button 
-          title="10%"
-          onPress={() => this.setState({tip: 0.1})}
-          />
-           <Button 
-          title="20%"
-          onPress={() => this.setState({tip: 0.2})}
-          />
-           <Button 
-          title="25%"
-          onPress={() => this.setState({tip: 0.25})}
-          />
+      <Container>
+        <View style={styles.container}>
+          <Text>
+            ${tip}
+          </Text>
           <TextInput
-              value={(this.state.tip * 100).toString()}
-              style={styles.customTip}
-              keyboardType= 'numeric'
-              onChangeText={(customTip) => this.updateCustomTip(customTip)}
-              placeholder='20%'
-           />
+            placeholder='Enter bill ammount'
+            style={styles.input}
+            value={this.state.inputValue}
+            keyboardType= 'numeric'
+            onChangeText={(text) => this.setState({inputValue: text})}
+          />
+          <View style = {styles.buttonGroup}>
+            <Button 
+            title="10%"
+            onPress={() => this.setState({tip: 0.1})}
+            />
+            <Button 
+            title="20%"
+            onPress={() => this.setState({tip: 0.2})}
+            />
+            <Button 
+            title="25%"
+            onPress={() => this.setState({tip: 0.25})}
+            />
+            <TextInput
+                value={(this.state.tip * 100).toString()}
+                style={styles.customTip}
+                keyboardType= 'numeric'
+                onChangeText={(customTip) => this.updateCustomTip(customTip)}
+                placeholder='20%'
+            />
+          </View>
         </View>
-      </View>
+      </Container>
     );
   }
 }
