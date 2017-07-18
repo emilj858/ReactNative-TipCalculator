@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-import Hello from './Hello';
+import styles from './styles';
 
 export default class App extends React.Component {
   constructor(){
@@ -12,6 +12,15 @@ export default class App extends React.Component {
     };
   }
 
+updateCustomTip(customTip){
+  if(customTip){
+    this.setState({
+      tip: parseFloat(customTip) / 100,
+    });
+  } else {
+    this.setState({ tip: 0 });
+  }
+}
 
   render() {
       let tip = 0.00;
@@ -45,8 +54,10 @@ export default class App extends React.Component {
           onPress={() => this.setState({tip: 0.25})}
           />
           <TextInput
+              value={(this.state.tip * 100).toString()}
+              style={styles.customTip}
               keyboardType= 'numeric'
-              onChangeText={(customtip) => this.updateCustomTip(customtip)}
+              onChangeText={(customTip) => this.updateCustomTip(customTip)}
               placeholder='20%'
            />
         </View>
@@ -54,23 +65,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  input: {
-    height: 40,
-    width: '100%',
-    borderColor: '#333',
-    borderWidth: 1,
-    padding: 7,
-  },
-  buttonGroup: {
-    flexDirection: 'row',
-  }
-});
