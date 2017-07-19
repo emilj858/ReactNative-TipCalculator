@@ -1,0 +1,152 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = undefined;
+var _jsxFileName = '/Users/emiljuboori/Dev/reactnative-tipcalculator/tipcalculator/App.js';
+
+var _react = require('react');
+
+var _react2 = babelHelpers.interopRequireDefault(_react);
+
+var _reactNative = require('react-native');
+
+var _styles = require('./styles');
+
+var _styles2 = babelHelpers.interopRequireDefault(_styles);
+
+var _nativeBase = require('native-base');
+
+var App = function (_React$Component) {
+  babelHelpers.inherits(App, _React$Component);
+
+  function App() {
+    babelHelpers.classCallCheck(this, App);
+
+    var _this = babelHelpers.possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+    _this.state = {
+      inputValue: '',
+      tip: 0
+    };
+    return _this;
+  }
+
+  babelHelpers.createClass(App, [{
+    key: 'updateCustomTip',
+    value: function updateCustomTip(customTip) {
+      if (customTip) {
+        this.setState({
+          tip: parseFloat(customTip) / 100
+        });
+      } else {
+        this.setState({ tip: 0 });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var tip = 0.00;
+      if (this.state.inputValue) {
+        tip = parseFloat(this.state.inputValue) * this.state.tip;
+        tip = (Math.round(tip * 100) / 100).toFixed(2);
+      }
+      return _react2.default.createElement(
+        _nativeBase.Container,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 41
+          }
+        },
+        _react2.default.createElement(
+          _reactNative.View,
+          { style: _styles2.default.container, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 42
+            }
+          },
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 43
+              }
+            },
+            '$',
+            tip
+          ),
+          _react2.default.createElement(_reactNative.TextInput, {
+            placeholder: 'Enter bill ammount',
+            style: _styles2.default.input,
+            value: this.state.inputValue,
+            keyboardType: 'numeric',
+            onChangeText: function onChangeText(text) {
+              return _this2.setState({ inputValue: text });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 46
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.View,
+            { style: _styles2.default.buttonGroup, __source: {
+                fileName: _jsxFileName,
+                lineNumber: 53
+              }
+            },
+            _react2.default.createElement(_reactNative.Button, {
+              title: '10%',
+              onPress: function onPress() {
+                return _this2.setState({ tip: 0.1 });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 54
+              }
+            }),
+            _react2.default.createElement(_reactNative.Button, {
+              title: '20%',
+              onPress: function onPress() {
+                return _this2.setState({ tip: 0.2 });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 58
+              }
+            }),
+            _react2.default.createElement(_reactNative.Button, {
+              title: '25%',
+              onPress: function onPress() {
+                return _this2.setState({ tip: 0.25 });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 62
+              }
+            }),
+            _react2.default.createElement(_reactNative.TextInput, {
+              value: (this.state.tip * 100).toString(),
+              style: _styles2.default.customTip,
+              keyboardType: 'numeric',
+              onChangeText: function onChangeText(customTip) {
+                return _this2.updateCustomTip(customTip);
+              },
+              placeholder: '20%',
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 66
+              }
+            })
+          )
+        )
+      );
+    }
+  }]);
+  return App;
+}(_react2.default.Component);
+
+exports.default = App;
