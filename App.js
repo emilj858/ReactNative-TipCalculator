@@ -1,3 +1,4 @@
+import Expo from 'expo';
 import React from 'react';
 import { 
   StyleSheet,
@@ -9,6 +10,12 @@ import {
 import styles from './styles';
 import {
   Container,
+  Content,
+  Header,
+  Left,
+  Body,
+  Title,
+  Right,
 } from 'native-base';
 
 
@@ -18,9 +25,16 @@ export default class App extends React.Component {
     this.state = {
       inputValue: '',
       tip: 0,
+      isReady: false,
     };
   }
-
+  async componentWillMount() {
+      await Expo.Font.loadAsync({
+        'Roboto': require('native-base/Fonts/Roboto.ttf'),
+        'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+      });
+      this.setState({isReady: true})
+  }
 updateCustomTip(customTip){
   if(customTip){
     this.setState({
@@ -37,8 +51,20 @@ updateCustomTip(customTip){
         tip = parseFloat(this.state.inputValue) * this.state.tip;
         tip = (Math.round(tip * 100) / 100).toFixed(2)
       }
+  if (!this.state.isReady){
+    return <Expo.AppLoading />;
+  }     
     return (
       <Container>
+        <Header>
+            <Left/>
+            <Body>
+                <Title>Header</Title>
+            </Body>
+            <Right />
+        </Header>
+   
+        <Content padder>
         <View style={styles.container}>
           <Text>
             ${tip}
@@ -72,6 +98,7 @@ updateCustomTip(customTip){
             />
           </View>
         </View>
+        </Content>
       </Container>
     );
   }
