@@ -1,6 +1,21 @@
-const React = require("react-native")
+const React = require("react-native");
+import { 
+  StyleSheet,
+  Text, 
+  View, 
+  TextInput, 
+  Button,
+  StatusBar, 
+  Platform,
+} from 'react-native';
 
 export default {
+    header:{
+      ...Platform.select({
+        android: {marginTop: Statusbar.currentHeight
+        },
+      }),    
+    },
     container: {
     flex: 1,
     backgroundColor: '#fff',
