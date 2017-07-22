@@ -6,6 +6,7 @@ import {
   View, 
   TextInput, 
   Button, 
+  Alert,
 } from 'react-native';
 import {
   Container,
@@ -48,6 +49,23 @@ updateCustomTip(customTip){
   // if (Platform === 'android'){
     
   // }
+alert (){
+  Alert.alert(
+    'Just saying hi',
+    'This alert does nothing',
+    [
+      {
+        text: 'OK',
+        onPress: () => console.log ('Hit Ok')
+      },
+      {
+        text: 'Cancel',
+        onPress: () => console.log ('Hit Cancel')
+      }
+    ]
+  )
+}
+
   render() {
       let tip = 0.00;
       if(this.state.inputValue){
@@ -62,7 +80,10 @@ updateCustomTip(customTip){
         <Head />
         <Content padder>
         <View style={styles.container}>
-          {/*<Hello />*/}
+          <Button 
+            title="Alert"
+            onPress={this.alert}
+            />
           <Text>
             ${tip}
           </Text>
