@@ -5,22 +5,15 @@ import {
   Text, 
   View, 
   TextInput, 
-  Button,
-  StatusBar, 
-  Platform,
+  Button, 
 } from 'react-native';
-import styles from './styles';
 import {
   Container,
   Content,
-  Header,
-  Left,
-  Body,
-  Title,
-  Right,
 } from 'native-base';
-
-import Hello from './Hello';
+import styles from './styles';
+import Head from './ui/Head';
+// import Hello from './Hello';
 
 
 export default class App extends React.Component {
@@ -40,13 +33,6 @@ export default class App extends React.Component {
       this.setState({isReady: true})
   }
 updateCustomTip(customTip){
-  // this is how you specify functions for ios and android
-  // if (Platform === 'ios'){
-
-  // }
-  // if (Platform === 'android'){
-    
-  // }
   if(customTip){
     this.setState({
       tip: parseFloat(customTip) / 100,
@@ -55,7 +41,13 @@ updateCustomTip(customTip){
     this.setState({ tip: 0 });
   }
 }
+// this is how you specify functions for ios and android
+  // if (Platform === 'ios'){
 
+  // }
+  // if (Platform === 'android'){
+    
+  // }
   render() {
       let tip = 0.00;
       if(this.state.inputValue){
@@ -67,15 +59,7 @@ updateCustomTip(customTip){
   }     
     return (
       <Container>
-        <View style = {styles.header}>
-          <Header>
-              <Left/>
-              <Body>
-                  <Title>Header</Title>
-              </Body>
-              <Right />
-          </Header>
-        </View>
+        <Head />
         <Content padder>
         <View style={styles.container}>
           {/*<Hello />*/}

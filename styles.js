@@ -8,15 +8,18 @@ import {
   StatusBar, 
   Platform,
 } from 'react-native';
+import {
+  Container,
+  Content,
+  Header,
+  Left,
+  Body,
+  Title,
+  Right,
+} from 'native-base';
 
 export default {
-    header:{
-      ...Platform.select({
-        android: {marginTop: Statusbar.currentHeight
-        },
-      }),    
-    },
-    container: {
+  container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
