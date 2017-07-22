@@ -14,7 +14,7 @@ import {
 } from 'native-base';
 import styles from './styles';
 import Head from './ui/Head';
-// import Hello from './Hello';
+import Values from './ui/Values';
 
 
 export default class App extends React.Component {
@@ -49,29 +49,24 @@ updateCustomTip(customTip){
   // if (Platform === 'android'){
     
   // }
-alert (){
-  Alert.alert(
-    'Just saying hi',
-    'This alert does nothing',
-    [
-      {
-        text: 'OK',
-        onPress: () => console.log ('Hit Ok')
-      },
-      {
-        text: 'Cancel',
-        onPress: () => console.log ('Hit Cancel')
-      }
-    ]
-  )
-}
+// alert (){
+//   Alert.alert(
+//     'Just saying hi',
+//     'This alert does nothing',
+//     [
+//       {
+//         text: 'OK',
+//         onPress: () => console.log ('Hit Ok')
+//       },
+//       {
+//         text: 'Cancel',
+//         onPress: () => console.log ('Hit Cancel')
+//       }
+//     ]
+//   )
+// }
 
   render() {
-      let tip = 0.00;
-      if(this.state.inputValue){
-        tip = parseFloat(this.state.inputValue) * this.state.tip;
-        tip = (Math.round(tip * 100) / 100).toFixed(2)
-      }
   if (!this.state.isReady){
     return <Expo.AppLoading />;
   }     
@@ -80,13 +75,14 @@ alert (){
         <Head />
         <Content padder>
         <View style={styles.container}>
-          <Button 
+          {/*<Button 
             title="Alert"
             onPress={this.alert}
+            />*/}
+            <Values 
+              tipPercent ={this.state.tip} 
+              bill = {this.state.inputValue}
             />
-          <Text>
-            ${tip}
-          </Text>
           <TextInput
             placeholder='Enter bill ammount'
             style={styles.input}
