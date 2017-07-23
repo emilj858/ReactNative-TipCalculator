@@ -33,7 +33,7 @@ export default class App extends React.Component {
       });
       this.setState({isReady: true})
   }
-updateCustomTip(customTip){
+updateCustomTip(customTip) {
   if (customTip){
     this.setState({
       tip: parseFloat(customTip) / 100,
