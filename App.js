@@ -73,8 +73,8 @@ updateCustomTip(customTip) {
     return (
       <Container>
         <Head />
-        <Content padder>
         <View style={styles.container}>
+        <Content style = {{width: '100%'}}>
           {/*<Button 
             title="Alert"
             onPress={this.alert}
@@ -83,11 +83,14 @@ updateCustomTip(customTip) {
               tipPercent ={this.state.tip} 
               bill = {this.state.inputValue}
             />
+            <View style = {styles.inputs}>
           <TextInput
             placeholder='Enter bill ammount'
             style={styles.input}
             value={this.state.inputValue}
             keyboardType= 'numeric'
+            underlineColorAndroid = "#FFF"
+            placeholderTextColor = '#FFF'
             onChangeText={(text) => this.setState({inputValue: text})}
           />
           <View style = {styles.buttonGroup}>
@@ -108,11 +111,14 @@ updateCustomTip(customTip) {
                 style={styles.customTip}
                 keyboardType= 'numeric'
                 onChangeText={(customTip) => this.updateCustomTip(customTip)}
+                underlineColorAndroid= "#FFF"
+                placeholderTextColor = '#FFF'
                 placeholder='20%'
             />
           </View>
-        </View>
+          </View>
         </Content>
+         </View>
       </Container>
     );
   }

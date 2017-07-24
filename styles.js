@@ -21,26 +21,32 @@ import {
 export default {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
+    height: '100%',
+    width: '100%'
+  },
+  inputs: {
+    backgroundColor: '#212121',
+    padding: 20,
+
   },
   input: {
     height: 40,
     width: '100%',
-    borderColor: '#333',
-    borderWidth: 1,
     padding: 7,
+    color: '#FFF',
   },
   buttonGroup: {
     flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   customTip:{
     height: 40,
     width: 60,
-    borderColor: '#333',
-    borderWidth: 1,
     padding: 7,
+    color: '#FFF',
   }
 }
