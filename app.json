@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "18.0.0"
+    "sdkVersion": "18.0.0",
+    "name": "Best Tip Calculator",
+    "version": "1.0.0",
+    "slug": "besttipcalculator",
+    "icon": "./logo.png",
+    "ios": {
+      "bundleIdentifier": "com.emiljuboori.besttipcalculator"
+    },
+    "android": {
+      "package": "com.emiljuboori.besttipcalculator"
+    }
   }
 }
