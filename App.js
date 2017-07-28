@@ -22,7 +22,7 @@ export default class App extends React.Component {
     super();
     this.state = {
       inputValue: '',
-      tip: 0,
+      tip: '',
       isReady: false,
     };
   }
@@ -111,6 +111,7 @@ updateCustomTip(customTip) {
                 style={styles.customTip}
                 keyboardType= 'numeric'
                 onChangeText={(customTip) => this.updateCustomTip(customTip)}
+                underlineColorAndroid= "#FFF"
                 underlineColorAndroid= "#FFF"
                 placeholderTextColor = '#FFF'
                 placeholder='20%'

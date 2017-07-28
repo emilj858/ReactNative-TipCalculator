@@ -19,7 +19,7 @@ const Head = () => (
           <Header>
               <Left/>
               <Body>
-                  <Title>Header</Title>
+                  <Title>Simple Tipping Calculator</Title>
               </Body>
               <Right />
           </Header>

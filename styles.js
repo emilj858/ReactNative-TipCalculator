@@ -47,6 +47,7 @@ export default {
     height: 40,
     width: 60,
     padding: 7,
-    color: '#FFF',
+    color: '#000',
+    backgroundColor: '#FFF'
   }
 }
