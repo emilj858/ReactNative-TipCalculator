@@ -37,7 +37,9 @@ export default {
     height: 40,
     width: '100%',
     padding: 7,
-    color: '#FFF',
+    backgroundColor: '#FFF',
+    color: '#000',
+    borderWidth: 1
   },
   buttonGroup: {
     flexDirection: 'row',
@@ -48,6 +50,7 @@ export default {
     width: 60,
     padding: 7,
     color: '#000',
-    backgroundColor: '#FFF'
+    backgroundColor: '#FFF',
+    
   }
 }
